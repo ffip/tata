@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"bitbucket.org/pwq/tata/lib/text"
+	"github.com/ffip/tata/lib/text"
 )
 
 func TestCryptToken(t *testing.T) {

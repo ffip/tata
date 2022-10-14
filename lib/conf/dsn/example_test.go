@@ -3,8 +3,8 @@ package dsn_test
 import (
 	"log"
 
-	"bitbucket.org/pwq/tata/lib/conf/dsn"
-	xtime "bitbucket.org/pwq/tata/lib/time"
+	"github.com/ffip/tata/lib/conf/dsn"
+	xtime "github.com/ffip/tata/lib/time"
 )
 
 // Config struct

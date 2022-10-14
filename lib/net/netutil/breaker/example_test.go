@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"time"
 
-	"bitbucket.org/pwq/tata/lib/net/netutil/breaker"
+	"github.com/ffip/tata/lib/net/netutil/breaker"
 
-	xtime "bitbucket.org/pwq/tata/lib/time"
+	xtime "github.com/ffip/tata/lib/time"
 )
 
 // ExampleGroup show group usage.

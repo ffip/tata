@@ -6,12 +6,12 @@ import (
 	"fmt"
 	"runtime"
 
-	"bitbucket.org/pwq/tata/api/sms/cfg"
-	"bitbucket.org/pwq/tata/api/sms/db/mysql"
-	"bitbucket.org/pwq/tata/api/sms/ext"
-	"bitbucket.org/pwq/tata/lib/conf/env"
-	xsql "bitbucket.org/pwq/tata/lib/db/mysql"
-	"bitbucket.org/pwq/tata/lib/log"
+	"github.com/ffip/tata/api/sms/cfg"
+	"github.com/ffip/tata/api/sms/db/mysql"
+	"github.com/ffip/tata/api/sms/ext"
+	"github.com/ffip/tata/lib/conf/env"
+	xsql "github.com/ffip/tata/lib/db/mysql"
+	"github.com/ffip/tata/lib/log"
 	"github.com/sirupsen/logrus"
 )
 

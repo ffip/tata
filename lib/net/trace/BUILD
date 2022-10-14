@@ -28,7 +28,7 @@ go_library(
         ["*.go"],
         exclude = ["*_test.go"],
     ),
-    importpath = "bitbucket.org/pwq/tata/lib/net/trace",
+    importpath = "github.com/ffip/tata/lib/net/trace",
     tags = ["manual"],
     deps = [
         "//library/conf/dsn:go_default_library",

@@ -1,9 +1,9 @@
 package ext
 
 import (
-	"bitbucket.org/pwq/tata/api/user/cfg"
-	"bitbucket.org/pwq/tata/api/user/route"
-	http "bitbucket.org/pwq/tata/lib/net/http/server/service"
+	"github.com/ffip/tata/api/user/cfg"
+	"github.com/ffip/tata/api/user/route"
+	http "github.com/ffip/tata/lib/net/http/server/service"
 	"github.com/sirupsen/logrus"
 )
 

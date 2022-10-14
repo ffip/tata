@@ -6,8 +6,8 @@ import (
 	"os"
 	"testing"
 
-	"bitbucket.org/pwq/tata/api/user/cfg"
-	"bitbucket.org/pwq/tata/lib/db/mysql"
+	"github.com/ffip/tata/api/user/cfg"
+	"github.com/ffip/tata/lib/db/mysql"
 )
 
 type Queue struct {

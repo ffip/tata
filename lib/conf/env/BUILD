@@ -9,7 +9,7 @@ load(
 go_library(
     name = "go_default_library",
     srcs = ["env.go"],
-    importpath = "bitbucket.org/pwq/tata/api/syn_bz/env",
+    importpath = "github.com/ffip/tata/api/syn_bz/env",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
 )

@@ -10,8 +10,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	cmcd "bitbucket.org/pwq/tata/lib/ecode"
-	xtime "bitbucket.org/pwq/tata/lib/time"
+	cmcd "github.com/ffip/tata/lib/ecode"
+	xtime "github.com/ffip/tata/lib/time"
 )
 
 const (

@@ -6,7 +6,7 @@ import (
 	"net"
 	"net/http"
 
-	using "bitbucket.org/pwq/tata/lib/net/utils"
+	using "github.com/ffip/tata/lib/net/utils"
 	"github.com/go-chi/chi"
 	"github.com/sirupsen/logrus"
 )

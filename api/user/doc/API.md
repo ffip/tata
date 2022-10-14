@@ -1,4 +1,4 @@
-# bitbucket.org/pwq/tata/api/user
+# github.com/ffip/tata/api/user
 
 ##### 项目简介
 > 1. 提供监管平台的数据加解密的实现，实现明文请求加密提交

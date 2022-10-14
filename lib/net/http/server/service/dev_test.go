@@ -3,7 +3,7 @@ package service
 import (
 	"testing"
 
-	"bitbucket.org/pwq/tata/lib/log"
+	"github.com/ffip/tata/lib/log"
 	"github.com/sirupsen/logrus"
 )
 

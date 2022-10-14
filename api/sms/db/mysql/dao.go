@@ -3,7 +3,7 @@ package mysql
 import (
 	"context"
 
-	xsql "bitbucket.org/pwq/tata/lib/db/mysql"
+	xsql "github.com/ffip/tata/lib/db/mysql"
 )
 
 const (

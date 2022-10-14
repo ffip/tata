@@ -3,7 +3,7 @@ package pb
 import (
 	"strconv"
 
-	"bitbucket.org/pwq/tata/lib/ecode"
+	"github.com/ffip/tata/lib/ecode"
 
 	"github.com/golang/protobuf/ptypes/any"
 )

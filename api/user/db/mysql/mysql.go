@@ -3,7 +3,7 @@ package mysql
 import (
 	"context"
 
-	"bitbucket.org/pwq/tata/lib/text"
+	"github.com/ffip/tata/lib/text"
 	"github.com/tidwall/gjson"
 )
 

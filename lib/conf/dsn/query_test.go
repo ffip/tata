@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	xtime "bitbucket.org/pwq/tata/lib/time"
+	xtime "github.com/ffip/tata/lib/time"
 )
 
 type cfg1 struct {
@@ -66,7 +66,7 @@ func TestDecodeQuery(t *testing.T) {
 			},
 		},
 		{
-			name: "test bitbucket.org/pwq/tata/lib/time",
+			name: "test github.com/ffip/tata/lib/time",
 			args: args{
 				query: url.Values{
 					"timeout": {"1s"},
@@ -77,7 +77,7 @@ func TestDecodeQuery(t *testing.T) {
 			cfg:  &cfg2{xtime.Duration(time.Second)},
 		},
 		{
-			name: "test empty bitbucket.org/pwq/tata/lib/time",
+			name: "test empty github.com/ffip/tata/lib/time",
 			args: args{
 				query: url.Values{},
 				v:     &cfg2{},
@@ -86,7 +86,7 @@ func TestDecodeQuery(t *testing.T) {
 			cfg:  &cfg2{},
 		},
 		{
-			name: "test bitbucket.org/pwq/tata/lib/time",
+			name: "test github.com/ffip/tata/lib/time",
 			args: args{
 				query: url.Values{},
 				v:     &cfg4{},

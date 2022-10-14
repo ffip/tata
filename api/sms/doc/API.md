@@ -1,1 +1,1 @@
-# bitbucket.org/pwq/tata/api/sms
+# github.com/ffip/tata/api/sms

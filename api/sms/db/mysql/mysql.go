@@ -3,7 +3,7 @@ package mysql
 import (
 	"context"
 
-	"bitbucket.org/pwq/tata/api/sms/stack"
+	"github.com/ffip/tata/api/sms/stack"
 )
 
 const (

@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"bitbucket.org/pwq/tata/lib/text"
+	"github.com/ffip/tata/lib/text"
 )
 
 func getValueInt(writer http.ResponseWriter, request *http.Request, item string) (out int, err error) {

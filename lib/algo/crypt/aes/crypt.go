@@ -4,8 +4,8 @@ import (
 	"encoding/hex"
 	"strings"
 
-	"bitbucket.org/pwq/tata/lib/algo/crypt/aes/aesep5"
-	"bitbucket.org/pwq/tata/lib/text"
+	"github.com/ffip/tata/lib/algo/crypt/aes/aesep5"
+	"github.com/ffip/tata/lib/text"
 )
 
 // DeCrypt ==> DeCrypt string.

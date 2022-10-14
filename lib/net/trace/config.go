@@ -8,8 +8,8 @@ import (
 
 	"github.com/pkg/errors"
 
-	"bitbucket.org/pwq/tata/lib/conf/dsn"
-	xtime "bitbucket.org/pwq/tata/lib/time"
+	"github.com/ffip/tata/lib/conf/dsn"
+	xtime "github.com/ffip/tata/lib/time"
 )
 
 var _traceDSN = "unixgram:///var/run/dapper-collect/dapper-collect.sock"

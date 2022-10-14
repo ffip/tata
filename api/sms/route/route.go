@@ -3,7 +3,7 @@ package route
 import (
 	"net/http"
 
-	"bitbucket.org/pwq/tata/api/sms/model"
+	"github.com/ffip/tata/api/sms/model"
 	"github.com/go-chi/chi"
 )
 

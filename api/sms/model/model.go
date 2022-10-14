@@ -6,8 +6,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"bitbucket.org/pwq/tata/api/sms/db/mysql"
-	"bitbucket.org/pwq/tata/api/sms/stack"
+	"github.com/ffip/tata/api/sms/db/mysql"
+	"github.com/ffip/tata/api/sms/stack"
 )
 
 // New ==> new task

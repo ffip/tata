@@ -7,10 +7,10 @@ import (
 	"testing"
 	"time"
 
-	"bitbucket.org/pwq/tata/lib/net/netutil/breaker"
+	"github.com/ffip/tata/lib/net/netutil/breaker"
 	"github.com/tidwall/gjson"
 
-	xtime "bitbucket.org/pwq/tata/lib/time"
+	xtime "github.com/ffip/tata/lib/time"
 )
 
 func TestMySQL(t *testing.T) {

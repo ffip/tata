@@ -4,7 +4,7 @@ package pb;
 
 import "google/protobuf/any.proto";
 
-option go_package = "bitbucket.org/pwq/tata/lib/ecode/pb";
+option go_package = "github.com/ffip/tata/lib/ecode/pb";
 
 message Error {
     int32 err_code = 1;

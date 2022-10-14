@@ -10,11 +10,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"bitbucket.org/pwq/tata/lib/text"
+	"github.com/ffip/tata/lib/text"
 
-	"bitbucket.org/pwq/tata/lib/ecode"
-	"bitbucket.org/pwq/tata/lib/net/netutil/breaker"
-	"bitbucket.org/pwq/tata/lib/net/trace"
+	"github.com/ffip/tata/lib/ecode"
+	"github.com/ffip/tata/lib/net/netutil/breaker"
+	"github.com/ffip/tata/lib/net/trace"
 
 	"github.com/pkg/errors"
 )

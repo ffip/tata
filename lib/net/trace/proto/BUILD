@@ -14,7 +14,7 @@ go_library(
     name = "go_default_library",
     srcs = [],
     embed = [":protogen_go_proto"],
-    importpath = "bitbucket.org/pwq/tata/lib/net/trace/proto",
+    importpath = "github.com/ffip/tata/lib/net/trace/proto",
     tags = ["manual"],
     visibility = ["//visibility:public"],
     deps = [
@@ -51,7 +51,7 @@ proto_library(
 go_proto_library(
     name = "protogen_go_proto",
     compilers = ["@io_bazel_rules_go//proto:go_grpc"],
-    importpath = "bitbucket.org/pwq/tata/lib/net/trace/proto",
+    importpath = "github.com/ffip/tata/lib/net/trace/proto",
     proto = ":protogen_proto",
     tags = ["manual"],
     deps = [

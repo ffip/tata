@@ -1,8 +1,8 @@
 package stack
 
 import (
-	"bitbucket.org/pwq/tata/lib/net/http/client"
-	"bitbucket.org/pwq/tata/lib/text"
+	"github.com/ffip/tata/lib/net/http/client"
+	"github.com/ffip/tata/lib/text"
 	"github.com/tidwall/gjson"
 )
 

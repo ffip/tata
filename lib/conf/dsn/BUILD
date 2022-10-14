@@ -25,7 +25,7 @@ go_library(
         "dsn.go",
         "query.go",
     ],
-    importpath = "bitbucket.org/pwq/tata/lib/conf/dsn",
+    importpath = "github.com/ffip/tata/lib/conf/dsn",
     tags = ["automanaged"],
     visibility = ["//visibility:public"],
     deps = ["//vendor/gopkg.in/go-playground/validator.v9:go_default_library"],

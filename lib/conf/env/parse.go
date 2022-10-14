@@ -1,7 +1,7 @@
 package env
 
 import (
-	"bitbucket.org/pwq/tata/lib/algo/crypt/aes"
+	"github.com/ffip/tata/lib/algo/crypt/aes"
 )
 
 // Parse ==> parse cfg string.

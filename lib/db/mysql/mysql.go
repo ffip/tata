@@ -5,8 +5,8 @@ import (
 	"fmt"
 	xtime "time"
 
-	"bitbucket.org/pwq/tata/lib/net/netutil/breaker"
-	"bitbucket.org/pwq/tata/lib/time"
+	"github.com/ffip/tata/lib/net/netutil/breaker"
+	"github.com/ffip/tata/lib/time"
 
 	// database driver
 	_ "github.com/go-sql-driver/mysql"

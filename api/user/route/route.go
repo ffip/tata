@@ -3,7 +3,7 @@ package route
 import (
 	"net/http"
 
-	"bitbucket.org/pwq/tata/api/user/model"
+	"github.com/ffip/tata/api/user/model"
 	"github.com/go-chi/chi"
 )
 

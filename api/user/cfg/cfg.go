@@ -5,7 +5,7 @@ import (
 	"flag"
 	"os"
 
-	"bitbucket.org/pwq/tata/lib/conf/env"
+	"github.com/ffip/tata/lib/conf/env"
 )
 
 // app default value.

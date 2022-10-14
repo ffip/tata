@@ -6,7 +6,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	xtime "bitbucket.org/pwq/tata/lib/time"
+	xtime "github.com/ffip/tata/lib/time"
 )
 
 func TestGroup(t *testing.T) {

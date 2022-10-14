@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"time"
 
-	protogen "bitbucket.org/pwq/tata/lib/net/trace/proto"
+	protogen "github.com/ffip/tata/lib/net/trace/proto"
 )
 
 const (

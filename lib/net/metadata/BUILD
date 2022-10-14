@@ -25,7 +25,7 @@ go_library(
         "key.go",
         "metadata.go",
     ],
-    importpath = "bitbucket.org/pwq/tata/lib/net/metadata",
+    importpath = "github.com/ffip/tata/lib/net/metadata",
     tags = ["automanaged"],
 )
 

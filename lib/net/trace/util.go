@@ -8,8 +8,8 @@ import (
 
 	"github.com/pkg/errors"
 
-	"bitbucket.org/pwq/tata/lib/conf/env"
-	"bitbucket.org/pwq/tata/lib/net/metadata"
+	"github.com/ffip/tata/lib/conf/env"
+	"github.com/ffip/tata/lib/net/metadata"
 )
 
 var _hostHash byte

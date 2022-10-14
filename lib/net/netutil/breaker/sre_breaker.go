@@ -7,7 +7,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"bitbucket.org/pwq/tata/lib/stat/summary"
+	"github.com/ffip/tata/lib/stat/summary"
 	"golang.org/x/crypto/openpgp/errors"
 )
 

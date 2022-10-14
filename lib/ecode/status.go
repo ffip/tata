@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"bitbucket.org/pwq/tata/lib/ecode/internal/types"
+	"github.com/ffip/tata/lib/ecode/internal/types"
 
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes"

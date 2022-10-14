@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"bitbucket.org/pwq/tata/lib/net/ip"
+	"github.com/ffip/tata/lib/net/ip"
 )
 
 // 部署版本
