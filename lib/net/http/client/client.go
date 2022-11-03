@@ -21,6 +21,7 @@ type Request struct {
 	Data          io.Reader
 	ContentType   string
 	Authorization string
+	UserAgent     string
 }
 
 // Result 		==> 结果集
@@ -36,6 +37,9 @@ func (c *Client) Do() {
 	request.Header.Set("Content-Type", c.Request.ContentType)
 	if c.Request.Authorization != "" {
 		request.Header.Set("Authorization", c.Request.Authorization)
+	}
+	if c.Request.UserAgent != "" {
+		request.Header.Set("User-Agent", c.Request.UserAgent)
 	}
 	if c.Cookie.String() != "" {
 		request.AddCookie(c.Cookie)
@@ -53,4 +57,23 @@ func (c *Client) Do() {
 	c.Result.Status = res.StatusCode
 	c.Result.Body, _ = ioutil.ReadAll(res.Body)
 
+}
+
+func (c *Client) Get() {
+	c.Request.Method = "GET"
+	c.Do()
+}
+
+func (c *Client) Post() {
+	c.Request.Method = "POST"
+	c.Do()
+}
+
+func (c *Client) Put() {
+	c.Request.Method = "PUT"
+	c.Do()
+}
+func (c *Client) Delete() {
+	c.Request.Method = "DELETE"
+	c.Do()
 }
