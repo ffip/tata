@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-// Logger       ==> 日志规范化(退出开关,日志等级,模块名称,方法名称,执行过程,日志等级-单次)
+// Logger       ==> 日志规范化(退出开关,日志等级,模块名称,方法名称,执行过程)
 type Log struct {
 	Exit     bool
 	Level    string
