@@ -5,6 +5,7 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 )
 
 // Client 		==> 客户端实例
@@ -23,6 +24,12 @@ type Request struct {
 	Authorization string
 	UserAgent     string
 	Header        map[string]string
+
+	// The proxy type is determined by the URL scheme. "http",
+	// "https", and "socks5" are supported. If the scheme is empty,
+	//
+	// If Proxy is nil or nil *URL, no proxy is used.
+	ProxyUrl url.URL
 }
 
 // Result 		==> 结果集
@@ -51,7 +58,7 @@ func (c *Client) Do() {
 		request.Header.Set(k, v)
 	}
 
-	client := &http.Client{}
+	client := &http.Client{Transport: &http.Transport{Proxy: http.ProxyURL(&c.Request.ProxyUrl)}}
 	res, err := client.Do(request)
 	if err != nil {
 		fmt.Println(err)
