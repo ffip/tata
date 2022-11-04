@@ -30,7 +30,7 @@ var levels map[string]int = map[string]int{
 // Printf       ==> 日志规范化打印(内容格式,内容参数)
 func (l *Logger) Printf(level, format string, value ...interface{}) {
 
-	if levels[strings.ToLower(level)] < levels[strings.ToLower(l.Level)] {
+	if levels[strings.ToUpper(level)] < levels[strings.ToUpper(l.Level)] {
 		return
 	}
 
