@@ -58,7 +58,12 @@ func (c *Client) Do() {
 		request.Header.Set(k, v)
 	}
 
-	client := &http.Client{Transport: &http.Transport{Proxy: http.ProxyURL(&c.Request.ProxyUrl)}}
+	var client *http.Client
+	if c.Request.ProxyUrl == (url.URL{}) {
+		client = &http.Client{}
+	} else {
+		client = &http.Client{Transport: &http.Transport{Proxy: http.ProxyURL(&c.Request.ProxyUrl)}}
+	}
 	res, err := client.Do(request)
 	if err != nil {
 		fmt.Println(err)
