@@ -16,10 +16,8 @@ func main() {
 	flag.Parse()
 
 	musql()
-
 	ext.ListenAndServe(&log.Logger{})
-	for {
-	}
+	fmt.Scan()
 }
 
 func musql() {
