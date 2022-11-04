@@ -16,15 +16,15 @@ type Logger struct {
 	Process  string
 }
 
-const LevelAll, LevelDebug, LevelInfo, LevelWarning, LevelError, LevelNone = "ALL", "DEBUG", "INFO", "WARNING", "ERROR", "None"
+const LevelAll, LevelDebug, LevelInfo, LevelWarn, LevelError, LevelNone = "ALL", "DEBUG", "INFO", "WARNING", "ERROR", "NONE"
 
 var levels map[string]int = map[string]int{
-	LevelAll:     -1,
-	LevelDebug:   0,
-	LevelInfo:    1,
-	LevelWarning: 2,
-	LevelError:   3,
-	LevelNone:    4,
+	LevelAll:   -1,
+	LevelDebug: 0,
+	LevelInfo:  1,
+	LevelWarn:  2,
+	LevelError: 3,
+	LevelNone:  4,
 }
 
 // Printf       ==> 日志规范化打印(内容格式,内容参数)
@@ -50,9 +50,7 @@ func (l *Logger) Printf(level, format string, value ...interface{}) {
 
 func (l *Logger) Debug(format string, value ...interface{}) { l.Printf(LevelDebug, format, value...) }
 func (l *Logger) Info(format string, value ...interface{})  { l.Printf(LevelInfo, format, value...) }
-func (l *Logger) Warning(format string, value ...interface{}) {
-	l.Printf(LevelWarning, format, value...)
-}
+func (l *Logger) Warn(format string, value ...interface{})  { l.Printf(LevelWarn, format, value...) }
 func (l *Logger) Error(format string, value ...interface{}) { l.Printf(LevelError, format, value...) }
 
 // Copy       ==> 衍生子日志输出
