@@ -22,6 +22,7 @@ type Request struct {
 	ContentType   string
 	Authorization string
 	UserAgent     string
+	Header        map[string]string
 }
 
 // Result 		==> 结果集
@@ -35,6 +36,7 @@ func (c *Client) Do() {
 	//HTTP请求构造
 	request, _ := http.NewRequest(c.Request.Method, c.Request.Url, c.Request.Data)
 	request.Header.Set("Content-Type", c.Request.ContentType)
+	request.Header.Set("Referer", c.Request.Url)
 	if c.Request.Authorization != "" {
 		request.Header.Set("Authorization", c.Request.Authorization)
 	}
@@ -44,6 +46,11 @@ func (c *Client) Do() {
 	if c.Cookie.String() != "" {
 		request.AddCookie(c.Cookie)
 	}
+	// 支持自定义Header
+	for k, v := range c.Request.Header {
+		request.Header.Set(k, v)
+	}
+
 	client := &http.Client{}
 	res, err := client.Do(request)
 	if err != nil {
