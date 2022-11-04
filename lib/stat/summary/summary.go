@@ -91,7 +91,7 @@ func (s *summary) Value() (val int64, cnt int64) {
 	return
 }
 
-//  Reset reset the counter.
+// Reset reset the counter.
 func (s *summary) Reset() {
 	s.mu.Lock()
 	for i := range s.buckets {

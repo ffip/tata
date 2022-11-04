@@ -30,23 +30,25 @@ type DSN struct {
 //
 // A two type data you can bind to struct
 // built-in values, use below keys to bind built-in value
+//
 //	username
 //	password
 //	address
 //	network
+//
 // the value in query string, use query.{name} to bind value in query string
 //
 // As a special case, if the field tag is "-", the field is always omitted.
 // NOTE: that a field with name "-" can still be generated using the tag "-,".
 //
 // Examples of struct field tags and their meanings:
+//
 //	// Field bind username
 //	Field string `dsn:"username"`
 //	// Field is ignored by this package.
 //	Field string `dsn:"-"`
 //	// Field bind value from query
 //	Field string `dsn:"query.name"`
-//
 func (d *DSN) Bind(v interface{}) (url.Values, error) {
 	assignFuncs := make(map[string]assignFunc)
 	if d.User != nil {

@@ -12,7 +12,7 @@ type Ticker struct {
 	exit   chan bool
 }
 
-//TickerFunction Custom Ticker
+// TickerFunction Custom Ticker
 type TickerFunction func()
 
 // NewTicker Creates a new ticker which runs every d time.Duration and executes the provided f TickerFunction

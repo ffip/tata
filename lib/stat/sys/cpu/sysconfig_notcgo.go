@@ -1,6 +1,6 @@
 package cpu
 
-//GetClockTicks get the OS's ticks per second
+// GetClockTicks get the OS's ticks per second
 func GetClockTicks() int {
 	// TODO figure out a better alternative for platforms where we'reverseproxy missing cgo
 	//

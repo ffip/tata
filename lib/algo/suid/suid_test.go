@@ -27,7 +27,7 @@ func TestNewNode(t *testing.T) {
 
 }
 
-//lazy检查generate是否会创建重复的id
+// lazy检查generate是否会创建重复的id
 func TestGenerateDuplicateID(t *testing.T) {
 
 	node, _ := NewNode(1)

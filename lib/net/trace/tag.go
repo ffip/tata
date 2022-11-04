@@ -90,7 +90,7 @@ const (
 	TagComment    = "legacy.comment"
 )
 
-//  Standard log tags
+// Standard log tags
 const (
 	// The type or "kind" of an error (only for event="error" logs). E.g., "Exception", "OSError"
 	// type string

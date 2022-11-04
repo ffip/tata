@@ -79,7 +79,7 @@ func (r *rollingCounter) Value() (sum int64) {
 	return
 }
 
-//  Reset reset the counter.
+// Reset reset the counter.
 func (r *rollingCounter) Reset() {
 	r.mu.Lock()
 	for i := range r.buckets {

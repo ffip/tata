@@ -4,11 +4,12 @@ package suid
 import (
 	"encoding/base64"
 	"encoding/binary"
-	"github.com/pkg/errors"
 	"fmt"
 	"strconv"
 	"sync"
 	"time"
+
+	"github.com/pkg/errors"
 )
 
 var (
