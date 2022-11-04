@@ -9,13 +9,11 @@ import (
 
 // Logger       ==> 日志规范化(退出开关,日志等级,模块名称,方法名称,执行过程,日志等级-单次)
 type Log struct {
-	Exit       bool
-	Level      string
-	Model      string
-	Function   string
-	Process    string
-	Olevel     string // One time use - Temporary log level
-	PrintLevel string
+	Exit     bool
+	Level    string
+	Model    string
+	Function string
+	Process  string
 }
 
 const LevelAll, LevelDebug, LevelInfo, LevelWarning, LevelError, LevelNone = "ALL", "DEBUG", "INFO", "WARNING", "ERROR", "None"
@@ -30,21 +28,16 @@ var levels map[string]int = map[string]int{
 }
 
 // Printf       ==> 日志规范化打印(内容格式,内容参数)
-func (l *Log) Printf(format string, value ...interface{}) {
-	lv := l.Level
-	if l.Olevel != "" {
-		lv = l.Olevel
-		l.Olevel = ""
-	}
+func (l *Log) Printf(level, format string, value ...interface{}) {
 
-	if levels[strings.ToLower(lv)] < levels[strings.ToLower(l.PrintLevel)] {
+	if levels[strings.ToLower(level)] < levels[strings.ToLower(l.Level)] {
 		return
 	}
 
 	format = fmt.Sprintf("%s%s", "%s [%s][%s][%s][%s] - ", format)
 	var e []interface{}
 
-	e = append(e, time.Now().Format("2006-01-02 15:04:05"), lv, l.Model, l.Function, l.Process)
+	e = append(e, time.Now().Format("2006-01-02 15:04:05"), level, l.Model, l.Function, l.Process)
 	for i := 0; i < len(value); i++ {
 		e = append(e, value[i])
 	}
@@ -55,10 +48,10 @@ func (l *Log) Printf(format string, value ...interface{}) {
 	}
 }
 
-func (l *Log) Debug(format string, value ...interface{})   { l.Printf(format, value...) }
-func (l *Log) Info(format string, value ...interface{})    { l.Printf(format, value...) }
-func (l *Log) Warning(format string, value ...interface{}) { l.Printf(format, value...) }
-func (l *Log) Error(format string, value ...interface{})   { l.Printf(format, value...) }
+func (l *Log) Debug(format string, value ...interface{})   { l.Printf(LevelDebug, format, value...) }
+func (l *Log) Info(format string, value ...interface{})    { l.Printf(LevelInfo, format, value...) }
+func (l *Log) Warning(format string, value ...interface{}) { l.Printf(LevelWarning, format, value...) }
+func (l *Log) Error(format string, value ...interface{})   { l.Printf(LevelError, format, value...) }
 
 // Copy       ==> 衍生子日志输出
 func (l *Log) Copy() (sub Log) {
