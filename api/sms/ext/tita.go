@@ -8,7 +8,7 @@ import (
 )
 
 // ListenAndServe ==> Tita ListenAndServe.
-func ListenAndServe(log *log.Log) {
+func ListenAndServe(log *log.Logger) {
 	ws := http.Server{
 		Addr:  cfg.Web.HttpAddr,
 		Crt:   cfg.Web.HttpsCrt,

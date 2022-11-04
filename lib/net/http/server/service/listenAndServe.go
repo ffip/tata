@@ -26,7 +26,7 @@ func New() (s *Server) {
 }
 
 // ListenAndServe 		==> 启动http服务
-func (h *Server) ListenAndServe(log *log.Log) (err error) {
+func (h *Server) ListenAndServe(log *log.Logger) (err error) {
 	log.Info("API-CHI: ListenAndServe - Listening ...")
 
 	httpAddr, err := net.ResolveTCPAddr("tcp", h.Addr)

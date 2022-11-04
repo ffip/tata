@@ -17,7 +17,7 @@ func main() {
 
 	musql()
 
-	ext.ListenAndServe(&log.Log{})
+	ext.ListenAndServe(&log.Logger{})
 
 	fmt.Scan()
 }

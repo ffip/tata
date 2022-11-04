@@ -8,7 +8,7 @@ import (
 )
 
 // Logger       ==> 日志规范化(退出开关,日志等级,模块名称,方法名称,执行过程)
-type Log struct {
+type Logger struct {
 	Exit     bool
 	Level    string
 	Model    string
@@ -28,7 +28,7 @@ var levels map[string]int = map[string]int{
 }
 
 // Printf       ==> 日志规范化打印(内容格式,内容参数)
-func (l *Log) Printf(level, format string, value ...interface{}) {
+func (l *Logger) Printf(level, format string, value ...interface{}) {
 
 	if levels[strings.ToLower(level)] < levels[strings.ToLower(l.Level)] {
 		return
@@ -48,12 +48,14 @@ func (l *Log) Printf(level, format string, value ...interface{}) {
 	}
 }
 
-func (l *Log) Debug(format string, value ...interface{})   { l.Printf(LevelDebug, format, value...) }
-func (l *Log) Info(format string, value ...interface{})    { l.Printf(LevelInfo, format, value...) }
-func (l *Log) Warning(format string, value ...interface{}) { l.Printf(LevelWarning, format, value...) }
-func (l *Log) Error(format string, value ...interface{})   { l.Printf(LevelError, format, value...) }
+func (l *Logger) Debug(format string, value ...interface{}) { l.Printf(LevelDebug, format, value...) }
+func (l *Logger) Info(format string, value ...interface{})  { l.Printf(LevelInfo, format, value...) }
+func (l *Logger) Warning(format string, value ...interface{}) {
+	l.Printf(LevelWarning, format, value...)
+}
+func (l *Logger) Error(format string, value ...interface{}) { l.Printf(LevelError, format, value...) }
 
 // Copy       ==> 衍生子日志输出
-func (l *Log) Copy() (sub Log) {
+func (l *Logger) Copy() (sub Logger) {
 	return *l
 }
