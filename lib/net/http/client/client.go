@@ -44,7 +44,7 @@ func NewRequest() *Client {
 }
 
 // Do 		==> 执行请求
-func (c *Client) Do() {
+func (c *Client) Do() *Client {
 	//HTTP请求构造
 	request, _ := http.NewRequest(c.Request.Method, c.Request.Url, c.Request.Data)
 	request.Header.Set("Content-Type", c.Request.ContentType)
@@ -72,7 +72,7 @@ func (c *Client) Do() {
 	res, err := client.Do(request)
 	if err != nil {
 		fmt.Println(err)
-		return
+		return c
 	}
 	if len(res.Cookies()) > 1 {
 		c.Cookie = res.Cookies()[1]
@@ -80,7 +80,7 @@ func (c *Client) Do() {
 	defer res.Body.Close()
 	c.Result.Status = res.StatusCode
 	c.Result.Body, _ = ioutil.ReadAll(res.Body)
-
+	return c
 }
 
 // Get 		==> 定义请求方式
