@@ -78,21 +78,56 @@ func (c *Client) Do() {
 
 }
 
-func (c *Client) Get() {
+// Get 		==> 定义请求方式
+func (c *Client) Get() *Client {
 	c.Request.Method = "GET"
-	c.Do()
+	return c
 }
 
-func (c *Client) Post() {
+// Post 		==> 定义请求方式
+func (c *Client) Post() *Client {
 	c.Request.Method = "POST"
-	c.Do()
+	return c
 }
 
-func (c *Client) Put() {
+// Put 		==> 定义请求方式
+func (c *Client) Put() *Client {
 	c.Request.Method = "PUT"
-	c.Do()
+	return c
 }
-func (c *Client) Delete() {
+
+// Delete 		==> 定义请求方式
+func (c *Client) Delete() *Client {
 	c.Request.Method = "DELETE"
-	c.Do()
+	return c
+}
+
+// SetUrl 		==> 定义请求目标
+func (c *Client) SetUrl(url string) *Client {
+	c.Request.Url = url
+	return c
+}
+
+// SetMethod 		==> 定义请求方法
+func (c *Client) SetMethod(method string) *Client {
+	c.Request.Method = method
+	return c
+}
+
+// SetContentType 		==> 定义内容类型
+func (c *Client) SetContentType(contentType string) *Client {
+	c.Request.ContentType = contentType
+	return c
+}
+
+// SetBody 		==> 定义请求内容
+func (c *Client) SetBody(body io.Reader) *Client {
+	c.Request.Data = body
+	return c
+}
+
+// SetAuthorization 		==> 定义身份验证
+func (c *Client) SetAuthorization(credentials string) *Client {
+	c.Request.Authorization = credentials
+	return c
 }
