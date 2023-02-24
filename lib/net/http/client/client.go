@@ -38,6 +38,11 @@ type Result struct {
 	Status int
 }
 
+// NewRequest 		==> 新建请求
+func NewRequest() *Client {
+	return &Client{}
+}
+
 // Do 		==> 执行请求
 func (c *Client) Do() {
 	//HTTP请求构造
