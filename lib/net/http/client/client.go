@@ -40,7 +40,7 @@ type Result struct {
 
 // NewRequest 		==> 新建请求
 func NewRequest() *Client {
-	return &Client{}
+	return &Client{Request: new(Request), Result: Result{}}
 }
 
 // Do 		==> 执行请求
@@ -135,4 +135,14 @@ func (c *Client) SetBody(body io.Reader) *Client {
 func (c *Client) SetAuthorization(credentials string) *Client {
 	c.Request.Authorization = credentials
 	return c
+}
+
+// GetStatusCode 		==> 获取请求状态码
+func (c *Client) GetStatusCode(credentials string) int {
+	return c.Result.Status
+}
+
+// GetBody 		==> 获取返回内容
+func (c *Client) GetBody(credentials string) []byte {
+	return c.Result.Body
 }
