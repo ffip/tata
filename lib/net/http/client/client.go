@@ -138,11 +138,11 @@ func (c *Client) SetAuthorization(credentials string) *Client {
 }
 
 // GetStatusCode 		==> 获取请求状态码
-func (c *Client) GetStatusCode(credentials string) int {
+func (c *Client) GetStatusCode() int {
 	return c.Result.Status
 }
 
 // GetBody 		==> 获取返回内容
-func (c *Client) GetBody(credentials string) []byte {
+func (c *Client) GetBody() []byte {
 	return c.Result.Body
 }
