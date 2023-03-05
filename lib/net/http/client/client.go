@@ -1,11 +1,13 @@
 package client
 
 import (
+	"bytes"
 	"fmt"
 	"io"
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"os"
 )
 
 // Client 		==> 客户端实例
@@ -145,4 +147,23 @@ func (c *Client) GetStatusCode() int {
 // GetBody 		==> 获取返回内容
 func (c *Client) GetBody() []byte {
 	return c.Result.Body
+}
+
+// GetBody 		==> 写出结果到文件
+func (c *Client) ToFile(filepath string) error {
+	// Create the download file
+	out, err := os.Create(filepath)
+	if err != nil {
+		return err
+	}
+	defer out.Close()
+
+	c.Do()
+
+	// Write the body to file
+	_, err = io.Copy(out, bytes.NewReader(c.GetBody()))
+	if err != nil {
+		return err
+	}
+	return nil
 }
