@@ -1,13 +1,13 @@
 package client
 
 import (
-	"bytes"
 	"fmt"
 	"io"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"os"
+	"time"
 )
 
 // Client 		==> 客户端实例
@@ -26,7 +26,7 @@ type Request struct {
 	Authorization string
 	UserAgent     string
 	Header        map[string]string
-
+	Timeout       time.Duration
 	// The proxy type is determined by the URL scheme. "http",
 	// "https", and "socks5" are supported. If the scheme is empty,
 	//
@@ -66,6 +66,9 @@ func (c *Client) Do() *Client {
 	}
 
 	var client *http.Client
+	if c.Request.Timeout != 0 {
+		client.Timeout = c.Request.Timeout
+	}
 	if c.Request.ProxyUrl == (url.URL{}) {
 		client = &http.Client{}
 	} else {
@@ -149,8 +152,13 @@ func (c *Client) GetBody() []byte {
 	return c.Result.Body
 }
 
-// GetBody 		==> 写出结果到文件
-func (c *Client) ToFile(filepath string) error {
+// GetBody 		==> 获取返回内容
+func (c *Client) GetBodyString() string {
+	return string(c.Result.Body)
+}
+
+// SaveToFile 		==> 写出结果到文件
+func (c *Client) SaveToFile(filepath string) error {
 	// Create the download file
 	out, err := os.Create(filepath)
 	if err != nil {
@@ -158,10 +166,8 @@ func (c *Client) ToFile(filepath string) error {
 	}
 	defer out.Close()
 
-	c.Do()
-
 	// Write the body to file
-	_, err = io.Copy(out, bytes.NewReader(c.GetBody()))
+	err = ioutil.WriteFile(filepath, c.GetBody(), 0777)
 	if err != nil {
 		return err
 	}
