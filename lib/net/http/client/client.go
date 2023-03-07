@@ -42,10 +42,7 @@ type Result struct {
 
 // NewRequest 		==> 新建请求
 func NewRequest() *Client {
-	c := &Client{Request: new(Request), Result: Result{}}
-	// Set default User-Agent
-	c.Request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
-	return c
+	return &Client{Request: &Request{UserAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"}}
 }
 
 // Do 		==> 执行请求
@@ -162,8 +159,6 @@ func (c *Client) GetBodyString() string {
 
 // SaveToFile 		==> 写出结果到文件
 func (c *Client) SaveToFile(filepath string) error {
-	// Execute the request
-	c.Do()
 	// Create the download file
 	out, err := os.Create(filepath)
 	if err != nil {
