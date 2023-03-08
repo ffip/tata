@@ -42,7 +42,7 @@ type Result struct {
 
 // NewRequest 		==> 新建请求
 func NewRequest() *Client {
-	return &Client{Request: &Request{UserAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"}}
+	return &Client{Request: &Request{Method: "GET", UserAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"}, Result: Result{}}
 }
 
 // Do 		==> 执行请求
@@ -66,13 +66,13 @@ func (c *Client) Do() *Client {
 	}
 
 	var client *http.Client
-	if c.Request.Timeout != 0 {
-		client.Timeout = c.Request.Timeout
-	}
 	if c.Request.ProxyUrl == (url.URL{}) {
 		client = &http.Client{}
 	} else {
 		client = &http.Client{Transport: &http.Transport{Proxy: http.ProxyURL(&c.Request.ProxyUrl)}}
+	}
+	if c.Request.Timeout != 0 {
+		client.Timeout = c.Request.Timeout
 	}
 	res, err := client.Do(request)
 	if err != nil {
@@ -142,6 +142,12 @@ func (c *Client) SetAuthorization(credentials string) *Client {
 	return c
 }
 
+// SetTimeOut 		==> 设置会话超时上限
+func (c *Client) SetTimeout(timeout time.Duration) *Client {
+	c.Request.Timeout = timeout
+	return c
+}
+
 // GetStatusCode 		==> 获取请求状态码
 func (c *Client) GetStatusCode() int {
 	return c.Result.Status
@@ -160,7 +166,7 @@ func (c *Client) GetBodyString() string {
 // SaveToFile 		==> 写出结果到文件
 func (c *Client) SaveToFile(filepath string) error {
 	// Create the download file
-	out, err := os.Create(filepath)
+	out, err := os.OpenFile(filepath, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0777)
 	if err != nil {
 		return err
 	}
