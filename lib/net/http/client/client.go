@@ -6,7 +6,6 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
-	"os"
 	"time"
 )
 
@@ -113,8 +112,8 @@ func (c *Client) Delete() *Client {
 }
 
 // SetUrl 		==> 定义请求目标
-func (c *Client) SetUrl(url string) *Client {
-	c.Request.Url = url
+func (c *Client) SetUrl(url ...any) *Client {
+	c.Request.Url = fmt.Sprintf(url[0].(string), url[1:]...)
 	return c
 }
 
@@ -164,14 +163,7 @@ func (c *Client) GetBodyString() string {
 }
 
 // SaveToFile 		==> 写出结果到文件
-func (c *Client) SaveToFile(filepath string) error {
-	// Create the download file
-	out, err := os.OpenFile(filepath, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0777)
-	if err != nil {
-		return err
-	}
-	defer out.Close()
-
+func (c *Client) SaveToFile(filepath string) (err error) {
 	// Write the body to file
 	err = ioutil.WriteFile(filepath, c.GetBody(), 0777)
 	if err != nil {
